@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 杂志式简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f5f7;
+      color: #1e1f26;
+      line-height: 1.6;
+    }
+    .hero {
+      background: linear-gradient(145deg, #0b0d14 0%, #1b1e2a 100%);
+      color: #eaeef2;
+      padding: 4.5rem 1.5rem 3.8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #8699b0, #d09e6f, #8699b0);
+      opacity: 0.6;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.3rem;
+      color: #f0f4fa;
+    }
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #b9c6d6;
+      max-width: 580px;
+      margin: 0.6rem auto 0;
+      line-height: 1.5;
+      font-weight: 350;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.8rem 1.8rem 4.5rem;
+    }
+    .intro-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(0, 0, 0, 0.02);
+      padding: 2.2rem 2rem;
+      margin-bottom: 2.8rem;
+    }
+    .intro-card .section-tag {
+      display: inline-block;
+      background: #eef1f6;
+      color: #2a3b4c;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
+    .intro-card h2 {
+      font-size: 1.7rem;
+      font-weight: 450;
+      border-left: 4px solid #c09a6b;
+      padding-left: 0.9rem;
+      margin-bottom: 1.2rem;
+      color: #1b222c;
+      line-height: 1.3;
+    }
+    .intro-card p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #282c34;
+    }
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+    .highlight-link {
+      color: #a4713a;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .highlight-link:hover {
+      border-bottom-color: #a4713a;
+      color: #7d5b2b;
+    }
+    .grid-feature {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2.4rem 0 2.2rem;
+    }
+    .feature-item {
+      flex: 1 1 180px;
+      background: #f9fafc;
+      border-radius: 18px;
+      padding: 1.3rem 1.2rem;
+      border: 1px solid #edf0f4;
+      transition: box-shadow 0.2s;
+    }
+    .feature-item:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+    }
+    .feature-item .num {
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: #b7864b;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .feature-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.4rem;
+    }
+    .feature-item p {
+      font-size: 0.9rem;
+      color: #3b4455;
+      line-height: 1.5;
+    }
+    .access-reminder {
+      background: #eceff5;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin-top: 2rem;
+      border: 1px solid #dbdfe8;
+    }
+    .access-reminder h3 {
+      font-size: 1.35rem;
+      font-weight: 480;
+      color: #1f2937;
+      margin-bottom: 0.8rem;
+    }
+    .access-reminder p {
+      color: #2f394a;
+      font-size: 0.98rem;
+    }
+    .faq-mini {
+      margin-top: 2.4rem;
+      padding: 0.3rem 0;
+    }
+    .faq-mini details {
+      border-bottom: 1px solid #e2e5ec;
+      padding: 0.7rem 0;
+    }
+    .faq-mini details:last-child {
+      border-bottom: none;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      color: #1a2636;
+      cursor: pointer;
+      outline: none;
+      font-size: 0.98rem;
+    }
+    .faq-mini summary::-webkit-details-marker {
+      color: #b7864b;
+    }
+    .faq-mini details p {
+      margin: 0.6rem 0 0.2rem;
+      padding-left: 0.5rem;
+      color: #3f4a5a;
+      font-size: 0.92rem;
+    }
+    .page-footer {
+      text-align: center;
+      padding: 2.8rem 1.5rem 2rem;
+      border-top: 1px solid #dadde4;
+      margin-top: 1.8rem;
+      background: #fafbfd;
+    }
+    .page-footer .note {
+      color: #5b6579;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .sub {
+        font-size: 0.95rem;
+      }
+      .container {
+        padding: 1.6rem 1rem 3rem;
+      }
+      .intro-card {
+        padding: 1.6rem 1.2rem;
+      }
+      .intro-card h2 {
+        font-size: 1.4rem;
+      }
+      .grid-feature {
+        gap: 1.2rem;
+      }
+      .feature-item {
+        flex: 1 1 100%;
+      }
+      .access-reminder {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>爱游戏 · 简明指南</h1>
+    <div class="sub">浏览、发现、理解 · 从一份杂志式索引开始</div>
+  </header>
+
+  <main class="container">
+    <div class="intro-card">
+      <span class="section-tag">背景</span>
+      <h2>入口不止一个方向</h2>
+      <p>在信息碎片纷杂的今天，一个清晰的起点比任何时候都重要。<strong>爱游戏</strong> 所呈现的区域内容聚合，并非简单罗列，而是围绕「发现」本身搭建的轻量指引。无论你关注平台动态、资源梳理还是使用备忘，这里的结构都偏向于一种简洁的索引逻辑——帮你快速定位自己所处的节点。</p>
+      <p>许多初次接触的朋友会问：从哪里开始最合理？其实不必刻意预设路线。你可以把 <a href="https://mportal-aiyouxi.com.cn" class="highlight-link">爱游戏</a> 当作一个信息中继站：先浏览主干栏目，再逐层深入细节。这种渐进式的接触往往比一次扫描更有效。</p>
+    </div>
+
+    <div class="intro-card">
+      <span class="section-tag">结构拆解</span>
+      <h2>三层可读区域</h2>
+      <p>整个页面体系大致分为三个递进层次：顶部概览区提供当前模块的标题与摘要；中部卡片区承载分类条目与简短说明，适合快速横向比对；底部常驻导航或链接汇总则保留了扩展阅读的路径。这样的布局不是为了填充视觉，而是让信息密度均匀分布。</p>
+      <p>值得注意的是，每个区块之间用留白与弱分隔线保持呼吸感，避免产生压迫式的浏览体验。如果你习惯先扫视再细读，这种节奏会比较友好。</p>
+
+      <div class="grid-feature">
+        <div class="feature-item">
+          <div class="num">01</div>
+          <h3>概览优先</h3>
+          <p>每个主要分区上方都有简短说明，帮助你判断是否深入阅读。</p>
+        </div>
+        <div class="feature-item">
+          <div class="num">02</div>
+          <h3>卡片聚合</h3>
+          <p>同类条目以卡片形式组织，降低认知负荷，一眼看到关键信息。</p>
+        </div>
+        <div class="feature-item">
+          <div class="num">03</div>
+          <h3>尾端索引</h3>
+          <p>页面底部保留补充链接或常见路径，便于回溯或延伸探索。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-card">
+      <span class="section-tag">访问提醒</span>
+      <h2>顺畅浏览的几个习惯</h2>
+      <p>由于部分资源或外部页面可能受网络环境、浏览器设置影响，建议在访问前确认链接的有效性。如果你发现某处加载异常，可以先检查地址栏前缀是否为 <code>https://</code>，或临时关闭一些严格的内容拦截插件。</p>
+      <p>另外，<strong>爱游戏</strong> 本身并不存储或转发敏感数据，它的角色更接近一个经过整理的导航起点。日常使用中，定期清理缓存与 cookie 能减少样式错乱的问题，这点对于长期使用者尤其适用。</p>
+
+      <div class="access-reminder">
+        <h3>快速备忘</h3>
+        <p>▪ 使用现代浏览器（Chrome / Edge / Firefox 最新版）可获得最佳显示。<br>
+        ▪ 若页面部分区域未加载，可尝试刷新或更换网络环境。<br>
+        ▪ 如需直接定位主入口，可记住以下地址：<a href="https://mportal-aiyouxi.com.cn" class="highlight-link">爱游戏</a> —— 这也是目前最稳定的访问方式。</p>
+      </div>
+    </div>
+
+    <div class="faq-mini">
+      <details>
+        <summary>“爱游戏” 和一般游戏门户有什么不同？</summary>
+        <p>更侧重信息聚合与模块指引，而非实时资讯或社区互动。它的结构偏杂志式，适合静下来了解框架。</p>
+      </details>
+      <details>
+        <summary>移动端访问体验如何？</summary>
+        <p>页面采用响应式设计，在手机和平板上会调整字号、间距与卡片排列，保持基本的可读性。</p>
+      </details>
+      <details>
+        <summary>为什么强调 “简明指南” 而不是功能列表？</summary>
+        <p>目的不是罗列所有功能，而是帮助新用户建立心理模型，知道哪里有什么、该怎么用。</p>
+      </details>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <p class="note">杂志式索引 · 内容基于公开信息整理 · 保持阅读的秩序感</p>
+  </footer>
+</body>
+</html>
