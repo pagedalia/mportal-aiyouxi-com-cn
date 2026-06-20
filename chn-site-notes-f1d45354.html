@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>PG模拟器 · 资料索引与工具说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #faf8f5;
+      font-family: system-ui, 'Times New Roman', 'Noto Serif SC', serif;
+      color: #2e2c2a;
+      line-height: 1.75;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fffcf9;
+      padding: 2.4rem 2rem;
+      border-radius: 24px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #3c3a38;
+      border-left: 5px solid #b7a99c;
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #7b746e;
+      margin-bottom: 2.2rem;
+      padding-left: 1.8rem;
+      border-bottom: 1px solid #e8e1da;
+      padding-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 450;
+      margin: 2.4rem 0 0.8rem 0;
+      color: #4a4540;
+      display: inline-block;
+      border-bottom: 2px solid #dcd3cb;
+      padding-bottom: 0.15rem;
+    }
+
+    p {
+      margin: 0.9rem 0 1rem 0;
+      text-indent: 2em;
+    }
+
+    .no-indent {
+      text-indent: 0;
+    }
+
+    .highlight-box {
+      background: #f5efe9;
+      border-left: 4px solid #b7a99c;
+      padding: 1.2rem 1.4rem;
+      margin: 1.6rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .highlight-box p {
+      margin: 0.3rem 0;
+      text-indent: 0;
+    }
+
+    ul {
+      margin: 1rem 0 1rem 1.8rem;
+      list-style-type: none;
+    }
+
+    ul li {
+      position: relative;
+      margin-bottom: 0.6rem;
+      padding-left: 1.2rem;
+    }
+
+    ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #9b8b7e;
+      font-weight: bold;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.5rem 0 0.2rem;
+    }
+
+    .card {
+      flex: 1 1 180px;
+      background: #ffffff;
+      border: 1px solid #ede7e0;
+      border-radius: 14px;
+      padding: 1.2rem 1rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .card strong {
+      display: block;
+      font-weight: 550;
+      font-size: 1.05rem;
+      color: #4e4842;
+      margin-bottom: 0.35rem;
+    }
+
+    .card p {
+      margin: 0;
+      text-indent: 0;
+      font-size: 0.92rem;
+      color: #5c5650;
+    }
+
+    .faq-item {
+      margin: 1.2rem 0;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #3a3530;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      margin-left: 1.2rem;
+      color: #5f5952;
+    }
+
+    .tip {
+      background: #f3ede6;
+      border-radius: 20px;
+      padding: 0.8rem 1.4rem;
+      margin: 1.8rem 0;
+      display: inline-block;
+      font-size: 0.92rem;
+      border: 1px dashed #ccc2b6;
+    }
+
+    a {
+      color: #7a6b5e;
+      text-decoration: none;
+      border-bottom: 1px solid #d6cbc0;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      color: #4f3f32;
+      border-bottom-color: #4f3f32;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5ddd4;
+      margin: 2.2rem 0 1rem;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #998e86;
+      text-align: center;
+      margin-top: 2rem;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page {
+        padding: 1.6rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 0.8rem;
+      }
+      .card-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>PG模拟器</h1>
+    <div class="subhead">一份平实的信息整理 · 从资料到工具</div>
+
+    <p>在整理日常笔记、回溯一些经典界面逻辑时，我多次遇到一个名字——<strong>PG模拟器</strong>。它既不是那种喧闹的推广工具，也并非需要复杂配置的大型平台，而更像一个针对特定场景设计的“资料层”。这次就从索引的角度，把关于它的几个侧面简单梳理出来，方便后来者快速建立认知。</p>
+
+    <div class="highlight-box">
+      <p class="no-indent"><strong>🔍 摘要</strong></p>
+      <p class="no-indent">PG模拟器是一套模拟环境，主要用于辅助用户完成对特定界面、交互逻辑或数据流的本地化测试与资料采集。它不直接提供游戏内容，而是以“模拟层”的方式降低重复操作成本，适合需要稳定回放、记录片段、探索界面机制的场景。</p>
+    </div>
+
+    <h2>核心亮点</h2>
+    <div class="card-grid">
+      <div class="card">
+        <strong>轻量模拟层</strong>
+        <p>不依赖庞大引擎，以独立模块运行，减少环境干扰。</p>
+      </div>
+      <div class="card">
+        <strong>可记录的交互</strong>
+        <p>支持对操作路径做简单回放，便于整理操作手册或流程截图。</p>
+      </div>
+      <div class="card">
+        <strong>离线可用</strong>
+        <p>核心功能不强制联网，保护资料整理的私密性。</p>
+      </div>
+      <div class="card">
+        <strong>清晰的结构</strong>
+        <p>界面逻辑接近原始布局，减少认知负担。</p>
+      </div>
+    </div>
+
+    <h2>使用建议</h2>
+    <p>如果你是第一次接触 <a href="https://chn-site-pg.com">PG模拟器</a>，建议先花十分钟浏览其内置的引导提示——虽然界面乍看朴素，但很多细节藏在右键菜单和快捷栏里。日常我习惯用它来记录一些界面的“行为快照”，比如按钮状态变化、弹窗响应顺序，再配合截图工具直接生成笔记素材。对于需要反复确认的交互流程，它也能省下不少重复启动的时间。</p>
+
+    <p>另外，如果你是在整理某类界面元素的关系图谱，那么可以尝试在模拟器里同时打开多个实例，不同实例之间互不干扰，方便对照。当然，它并非为高负载设计，同时实例建议控制在4个以内，以免影响本地性能。</p>
+
+    <div class="tip">
+      💡 小提示：模拟器生成的日志文件默认存放在本地文档目录，定期整理可以避免积压。
+    </div>
+
+    <h2>FAQ 摘要</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q：需要注册或登录才能用吗？</div>
+      <div class="faq-a">A：本地模拟阶段完全离线，不需要任何账户。部分资料同步功能可选开启。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：它和市面上的模拟器有什么不同？</div>
+      <div class="faq-a">A：它更偏向“资料采集与界面复盘”，而非高效运行或性能测试。适合资料整理者、界面设计回溯、编辑器映射练习等方向。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：安全性和隐私如何？</div>
+      <div class="faq-a">A：本地数据不做云端同步（除非手动导出），没有后台静默连接。建议从原站获取最新版本，避免第三方修改包。</div>
+    </div>
+
+    <hr>
+
+    <p class="no-indent" style="font-size: 0.93rem;">以上内容基于个人使用习惯整理，未用夸张表述。若希望进一步了解或下载，可以访问原站的介绍页面，那里保持了比较克制的更新频率。关于 <a href="https://chn-site-pg.com">PG模拟器</a> 的更多版本说明和常见问题，都以原文为准。</p>
+
+    <div class="footer-note">
+      · 资料索引页 · 无诱导承诺 · 仅供信息参考 ·
+    </div>
+  </div>
+</body>
+</html>
